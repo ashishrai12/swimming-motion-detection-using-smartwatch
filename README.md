@@ -11,8 +11,6 @@ Pebble Motion Analytics: Swimming & Distress DetectionThis project uses Pebble S
 
 📊 Data VisualizationThe script processes three specific data files (edit.txt, edit1.txt, and edit2.txt). For each state, it generates a 3-axis plot (X, Y, and Z) to compare signal variance.ActivityData SourceExpected WaveformIdleedit.txtFlat lines with minor sensor noise.Swimmingedit1.txtPeriodic sinusoidal waves.Drowningedit2.txtSpiky, high-frequency, irregular peaks.
 
-⚙️Installation & UsagePrerequisitesMATLAB (R2018a or newer recommended).Accelerometer logs from a Pebble Watch (formatted as CSV/Text).Running the AnalysisClone this repository:Bashgit clone https://github.com/yourusername/pebble-swim-detection.git
-Ensure your data files (edit.txt, edit1.txt, edit2.txt) are in the root directory.Open analyze_motion.m in MATLAB.Run the script to generate the comparison figures.
 
 🔍 How the Code WorksThe script utilizes a custom textscan configuration to handle the specific metadata and delimiters exported by Pebble logger apps:Matlab% Example of the data ingestion logic
 fileID = fopen('edit1.txt');
