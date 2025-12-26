@@ -1,8 +1,10 @@
-# Movement_Accelerometer
+# Swimming detection
 
 Readings for DataPlotSensorLog.m look most promising.
 Use the data from files, Nothing.doc, swim.doc, and drown.doc and save them as '.txt' files in your matlab path.
 Run the code to see the plotted graphical output.
+
+<img width="741" height="703" alt="image" src="https://github.com/user-attachments/assets/6d7631d0-59b9-435f-beae-de044be9f51a" />
 
 
 Pebble Motion Analytics: Swimming & Distress DetectionThis project uses Pebble Smartwatch accelerometer data to classify aquatic movement patterns. By analyzing 3-axis motion signals, the system distinguishes between being stationary, active swimming, and erratic movement patterns associated with drowning.
