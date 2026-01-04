@@ -1,26 +1,53 @@
-# Swimming detection
+# Swimming Motion Detection Using Smartwatch
 
-Readings for DataPlotSensorLog.m look most promising.
-Use the data from files, Nothing.doc, swim.doc, and drown.doc and save them as '.txt' files in your matlab path.
-Run the code to see the plotted graphical output.
+This project uses Pebble Smartwatch accelerometer data to classify aquatic movement patterns. By analyzing 3-axis motion signals, the system distinguishes between being stationary, active swimming, and erratic movement patterns associated with drowning.
 
-<img width="741" height="703" alt="image" src="https://github.com/user-attachments/assets/6d7631d0-59b9-435f-beae-de044be9f51a" />
+## Project Structure
 
+The project is organized into the following directories:
 
-Pebble Motion Analytics: Swimming & Distress DetectionThis project uses Pebble Smartwatch accelerometer data to classify aquatic movement patterns. By analyzing 3-axis motion signals, the system distinguishes between being stationary, active swimming, and erratic movement patterns associated with drowning.
+- `data/`: Contains raw sensor logs (`.txt` files) exported from the smartwatch.
+- `src/`: Contains MATLAB source code for data analysis and visualization.
+- `docs/`: Contains original project documentation and reports.
 
-Project OverviewThe goal of this project is to create a baseline for a wearable safety system. Using MATLAB, we process raw sensor logs to visualize the "signature" of different water-based activities.Monitored States:Nothing (Baseline): Stationary or idle movement.Swimming: Rhythmic, periodic motion representing consistent strokes.Drowning: High-amplitude, chaotic, and non-periodic signals representing distress.
+## Getting Started
 
-Data VisualizationThe script processes three specific data files (edit.txt, edit1.txt, and edit2.txt). For each state, it generates a 3-axis plot (X, Y, and Z) to compare signal variance.ActivityData SourceExpected WaveformIdleedit.txtFlat lines with minor sensor noise.Swimmingedit1.txtPeriodic sinusoidal waves.Drowningedit2.txtSpiky, high-frequency, irregular peaks.
+### Prerequisites
 
+- MATLAB (R2018a or later recommended)
 
-How the Code WorksThe script utilizes a custom textscan configuration to handle the specific metadata and delimiters exported by Pebble logger apps:Matlab% Example of the data ingestion logic
-fileID = fopen('edit1.txt');
-C = textscan(fileID,'%f,%f,%f','delimiter', '\n','CommentStyle',']|');
-fclose(fileID);
+### Running the Analysis
 
-% Visualization logic
-subplot(3,1,1);
-plot(1:length(C{1}),C{1});
-title('X-axis');
-Delimiter Handling: Uses \n and custom CommentStyle to ignore non-numeric header data.Subplotting: Organizes X, Y, and Z axes into a single vertical stack for easy comparison of directional force.🛠 Future Improvements[ ] Implement a Fast Fourier Transform (FFT) to detect stroke frequency.[ ] Add a real-time threshold trigger for "Drowning" detection.[ ] Support for Pebble's successor hardware (Fitbit/Garmin) data formats.
+1.  Navigate to the `src/` directory in MATLAB.
+2.  Run the `main_analysis.m` script:
+    ```matlab
+    main_analysis
+    ```
+3.  The script will process the data in the `data/` directory and generate plots for the following states:
+    - **Idle (Nothing)**: Baseline stationary motion.
+    - **Swimming**: Rhythmic, periodic motion.
+    - **Distress (Drowning)**: chaotic, high-amplitude signals.
+
+## Technical Details
+
+### Signal Characteristics
+
+| Activity | Data Source | Expected Waveform |
+| :--- | :--- | :--- |
+| **Idle** | `data/Nothing.txt` | Flat lines with minor sensor noise. |
+| **Swimming** | `data/Swim.txt` | Periodic sinusoidal waves. |
+| **Drowning** | `data/Drown.txt` | Spiky, high-frequency, irregular peaks. |
+
+### Core Components
+
+- **`src/plot_motion_data.m`**: A reusable function that handles data ingestion (using `textscan`) and organizes X, Y, and Z axes into a vertical subplot stack.
+- **`src/main_analysis.m`**: The main execution script that configures and calls the plotting utility for all study cases.
+
+## Future Improvements
+
+- [ ] Implement a Fast Fourier Transform (FFT) to detect stroke frequency.
+- [ ] Add a real-time threshold trigger for "Drowning" detection.
+- [ ] Support for modern hardware formats (Fitbit, Garmin, Apple Watch).
+
+---
+*Developed for aquatic safety research using Pebble Smartwatch analytics.*
