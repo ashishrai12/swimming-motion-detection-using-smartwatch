@@ -1,28 +1,48 @@
-%% Swimming Motion Detection & Analysis
+%% Swimming Motion Detection & Professional Analysis
 % This script serves as the main entry point for analyzing Pebble Smartwatch 
-% accelerometer data to distinguish between different aquatic states.
+% accelerometer data using the MotionData class.
 
 clear; clc; close all;
 
-% Add src to path if needed (though we are running from it or root)
-% addpath('src');
+% Get absolute path to the project root for robust file discovery
+currentFile = mfilename('fullpath');
+[srcPath, ~, ~] = fileparts(currentFile);
+projectRoot = fileparts(srcPath);
+dataDir = fullfile(projectRoot, 'data');
 
-% Define data files and their configurations
-% format: {filename, title, delimiter, commentStyle}
-configs = {
-    {'../data/Nothing.txt', 'State: Idle (Nothing)', '\n', '#'},
-    {'../data/Swim.txt', 'State: Swimming', '\n', '#'},
-    {'../data/Drown.txt', 'State: Distress (Drowning)', '\n', '#'}
+% Define analysis cases
+% format: {filename, stateName}
+cases = {
+    {'Nothing.txt', 'Idle State (Stationary)'},
+    {'Swim.txt', 'Active Swimming (Periodic)'},
+    {'Drown.txt', 'Distress Signal (Chaotic)'},
+    {'SensorLogSwim.txt', 'Raw Sensor Log (Piped Format)'}
 };
 
-% Loop through each configuration and plot
-for i = 1:length(configs)
-    cfg = configs{i};
+% Processing Loop
+fprintf('Starting Professional Motion Analysis...\n');
+fprintf('------------------------------------------\n');
+
+results = {};
+for i = 1:length(cases)
+    caseInfo = cases{i};
+    filePath = fullfile(dataDir, caseInfo{1});
+    
+    fprintf('Processing: %s\n', caseInfo{2});
+    
     try
-        plot_motion_data(cfg{1}, cfg{2}, cfg{3}, cfg{4});
+        % Instantiate the professional data object
+        motionObj = MotionData(filePath, caseInfo{2});
+        
+        % Generate professional plots
+        motionObj.plot();
+        
+        % Store for further analysis if needed
+        results{end+1} = motionObj; %#ok<AGROW>
     catch ME
-        fprintf('Error plotting %s: %s\n', cfg{1}, ME.message);
+        fprintf('  [ERROR] Failed to process %s: %s\n', caseInfo{1}, ME.message);
     end
 end
 
-fprintf('Analysis Complete. All states processed.\n');
+fprintf('------------------------------------------\n');
+fprintf('Analysis Complete. %d states visualized.\n', length(results));

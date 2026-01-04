@@ -4,10 +4,10 @@ This project uses Pebble Smartwatch accelerometer data to classify aquatic movem
 
 ## Project Structure
 
-The project is organized into the following directories:
+The project is organized into the following professional directory structure:
 
-- `data/`: Contains raw sensor logs (`.txt` files) exported from the smartwatch.
-- `src/`: Contains MATLAB source code for data analysis and visualization.
+- `data/`: Contains raw sensor logs (`.txt` files) in various formats (space, comma, or pipe separated).
+- `src/`: Contains MATLAB source code featuring a class-based architecture.
 - `docs/`: Contains original project documentation and reports.
 
 ## Getting Started
@@ -23,25 +23,28 @@ The project is organized into the following directories:
     ```matlab
     main_analysis
     ```
-3.  The script will process the data in the `data/` directory and generate plots for the following states:
-    - **Idle (Nothing)**: Baseline stationary motion.
-    - **Swimming**: Rhythmic, periodic motion.
-    - **Distress (Drowning)**: chaotic, high-amplitude signals.
+3.  The script will automatically detect the format of each file in the `data/` directory and generate professional visualizations.
 
-## Technical Details
+## Technical Architecture
 
-### Signal Characteristics
+The project has been refactored for robustness and professional standards:
 
-| Activity | Data Source | Expected Waveform |
-| :--- | :--- | :--- |
-| **Idle** | `data/Nothing.txt` | Flat lines with minor sensor noise. |
-| **Swimming** | `data/Swim.txt` | Periodic sinusoidal waves. |
-| **Drowning** | `data/Drown.txt` | Spiky, high-frequency, irregular peaks. |
+### `MotionData` Class
+A custom MATLAB class (`src/MotionData.m`) serves as the core data engine. It features:
+- **Automatic Format Detection**: Seamlessly handles multiple legacy and modern data formats.
+- **Robust Parsing**: Extracts coordinate data even from complex string representations.
+- **Professional Visualization**: Generates standardized, publication-quality 3-axis plots with automatic time scaling.
 
-### Core Components
+### Analysis Entry Point
+`src/main_analysis.m` handles the high-level orchestration, ensuring that all study states (Idle, Swimming, Drowning) are processed and compared correctly.
 
-- **`src/plot_motion_data.m`**: A reusable function that handles data ingestion (using `textscan`) and organizes X, Y, and Z axes into a vertical subplot stack.
-- **`src/main_analysis.m`**: The main execution script that configures and calls the plotting utility for all study cases.
+## Data Signatures
+
+| Activity | Expected Waveform |
+| :--- | :--- |
+| **Idle** | Flat lines with minor sensor noise. |
+| **Swimming** | Periodic sinusoidal waves representing rhythmic strokes. |
+| **Drowning** | Spiky, high-frequency, irregular peaks indicating distress. |
 
 ## Future Improvements
 
