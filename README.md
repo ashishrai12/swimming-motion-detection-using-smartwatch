@@ -2,6 +2,8 @@
 
 This project uses Pebble Smartwatch accelerometer data to classify aquatic movement patterns. By analyzing 3-axis motion signals, the system distinguishes between being stationary, active swimming, and erratic movement patterns associated with drowning.
 
+<img width="741" height="703" alt="image" src="https://github.com/user-attachments/assets/97219e0d-d1dc-44be-9342-1537dd0d50c9" />
+
 ## Project Structure
 
 The project is organized into the following professional directory structure:
