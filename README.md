@@ -19,9 +19,9 @@ The project is organized into the following professional directory structure:
 ### Running the Analysis
 
 1.  Navigate to the `src/` directory in MATLAB.
-2.  Run the `main_analysis.m` script:
+2.  Run the `MainAnalysis.m` script:
     ```matlab
-    main_analysis
+    MainAnalysis
     ```
 3.  The script will automatically detect the format of each file in the `data/` directory and generate professional visualizations.
 
@@ -36,7 +36,7 @@ A custom MATLAB class (`src/MotionData.m`) serves as the core data engine. It fe
 - **Professional Visualization**: Generates standardized, publication-quality 3-axis plots with automatic time scaling.
 
 ### Analysis Entry Point
-`src/main_analysis.m` handles the high-level orchestration, ensuring that all study states (Idle, Swimming, Drowning) are processed and compared correctly.
+`src/MainAnalysis.m` handles the high-level orchestration, ensuring that all study states (Idle, Swimming, Drowning) are processed and compared correctly.
 
 ## Data Signatures
 

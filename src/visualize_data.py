@@ -111,7 +111,7 @@ def main():
         if os.path.exists(fpath):
             try:
                 x, y, z, fmt = load_motion_data(fpath)
-                out_name = os.path.join(plot_dir, f"{fname.split('.')[0]}_plot.png")
+                out_name = os.path.join(plot_dir, f"{fname.split('.')[0].lower().replace('sensorlogswim', 'sensor_log_swim')}_plot.png")
                 plot_data(x, y, z, f"{label} - {fmt}", out_name)
                 print(f"Generated {out_name}")
             except Exception as e:
