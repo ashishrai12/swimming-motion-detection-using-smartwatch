@@ -46,6 +46,29 @@ A custom MATLAB class (`src/MotionData.m`) serves as the core data engine. It fe
 | **Swimming** | Periodic sinusoidal waves representing rhythmic strokes. |
 | **Drowning** | Spiky, high-frequency, irregular peaks indicating distress. |
 
+## Testing
+
+The project includes comprehensive unit tests for both Python and MATLAB implementations.
+
+### Running Python Tests
+
+```bash
+# Run all tests
+python -m unittest discover tests -v
+
+# Expected output: 17 tests passed
+```
+
+### Running MATLAB Tests
+
+```matlab
+% In MATLAB
+addpath('tests');
+results = runtests('TestMotionData');
+```
+
+See `tests/README.md` for detailed testing documentation.
+
 ## Future Improvements
 
 - [ ] Implement a Fast Fourier Transform (FFT) to detect stroke frequency.
