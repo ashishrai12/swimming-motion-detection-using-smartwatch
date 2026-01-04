@@ -45,6 +45,7 @@ A custom MATLAB class (`src/MotionData.m`) serves as the core data engine. It fe
 | **Idle** | Flat lines with minor sensor noise. |
 | **Swimming** | Periodic sinusoidal waves representing rhythmic strokes. |
 | **Drowning** | Spiky, high-frequency, irregular peaks indicating distress. |
+| **Baseline** | `data/EditData.txt` | Alternative processed baseline for comparison. |
 
 ## Testing
 

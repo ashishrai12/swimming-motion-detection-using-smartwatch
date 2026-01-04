@@ -16,7 +16,8 @@ cases = {
     {'Nothing.txt', 'Idle State (Stationary)'},
     {'Swim.txt', 'Active Swimming (Periodic)'},
     {'Drown.txt', 'Distress Signal (Chaotic)'},
-    {'SensorLogSwim.txt', 'Raw Sensor Log (Piped Format)'}
+    {'SensorLogSwim.txt', 'Raw Sensor Log (Piped Format)'},
+    {'EditData.txt', 'Processed Baseline (EditData)'}
 };
 
 % Processing Loop

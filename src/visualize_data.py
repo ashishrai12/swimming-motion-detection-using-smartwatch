@@ -46,7 +46,7 @@ def load_motion_data(filepath):
     
     elif is_comma:
         for line in data_lines:
-            # Handle possible trailing comments like in edit.txt style
+            # Handle possible trailing comments like in EditData.txt style
             clean_line = line.split(']|')[0] if ']|' in line else line
             parts = clean_line.replace(']', '').split(',')
             if len(parts) >= 3:
@@ -99,7 +99,8 @@ def main():
         ('Nothing.txt', 'Idle State (Stationary)'),
         ('Swim.txt', 'Active Swimming (Periodic)'),
         ('Drown.txt', 'Distress Signal (Chaotic)'),
-        ('SensorLogSwim.txt', 'Raw Sensor Log (Piped)')
+        ('SensorLogSwim.txt', 'Raw Sensor Log (Piped)'),
+        ('EditData.txt', 'Processed Baseline')
     ]
     
     plot_dir = 'plots'

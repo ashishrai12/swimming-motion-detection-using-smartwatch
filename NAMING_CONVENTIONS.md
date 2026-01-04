@@ -18,12 +18,21 @@ This document outlines the naming conventions used throughout the project for co
   - `test_visualize_data.py` - Test file
 
 ### Data Files
-- **Convention**: PascalCase (legacy format, preserved for compatibility)
+- **Convention**: PascalCase (for consistency and readability)
 - **Examples**:
-  - `Nothing.txt`
-  - `Swim.txt`
-  - `Drown.txt`
-  - `SensorLogSwim.txt`
+  - `Nothing.txt` - Idle state sensor data
+  - `Swim.txt` - Swimming motion data
+  - `Drown.txt` - Distress signal data
+  - `SensorLogSwim.txt` - Raw sensor log
+  - `EditData.txt` - Edited/processed data
+
+### Documentation Files
+- **Convention**: PascalCase with descriptive names
+- **Examples**:
+  - `Nothing.doc` - Idle state documentation
+  - `Swim.doc` - Swimming documentation
+  - `Drown.doc` - Drowning documentation
+  - `EditData.docx` - Edited data documentation
 
 ### Generated Output Files
 - **Convention**: lowercase snake_case
@@ -52,8 +61,21 @@ This document outlines the naming conventions used throughout the project for co
 ```
 swimming-motion-detection-using-smartwatch/
 ├── data/                    # Raw sensor data files (PascalCase)
-├── docs/                    # Documentation files
+│   ├── Nothing.txt
+│   ├── Swim.txt
+│   ├── Drown.txt
+│   ├── SensorLogSwim.txt
+│   └── EditData.txt
+├── docs/                    # Documentation files (PascalCase)
+│   ├── Nothing.doc
+│   ├── Swim.doc
+│   ├── Drown.doc
+│   └── EditData.docx
 ├── plots/                   # Generated plot files (snake_case)
+│   ├── nothing_plot.png
+│   ├── swim_plot.png
+│   ├── drown_plot.png
+│   └── sensor_log_swim_plot.png
 ├── src/                     # Source code
 │   ├── MotionData.m        # MATLAB class (PascalCase)
 │   ├── MainAnalysis.m      # MATLAB script (PascalCase)
